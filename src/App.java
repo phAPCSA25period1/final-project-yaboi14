@@ -1,5 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        ClothingItem shirt = new ClothingItem("Shirt","Red","path");
+        System.out.println(shirt.getColor());
     }
 }
