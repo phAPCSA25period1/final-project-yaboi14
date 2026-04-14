@@ -1,16 +1,23 @@
-
 import java.util.ArrayList;
 
 public class Wardrobe {
-    ArrayList Wardrobe = new ArrayList();
+    ArrayList<ClothingItem> wardrobe = new ArrayList<>();
 
     public void addItem(ClothingItem clothingItem){
-        Wardrobe.add(clothingItem);
+        wardrobe.add(clothingItem);
     }
 
     public void seeWardrobe(){
-        for(int i = 0; i <= Wardrobe.length; i++ ){
+        for (ClothingItem item : wardrobe) {
+            System.out.println(item);
+        }
+    }
 
+    public void printItemsByType(String type) {
+    for (ClothingItem item : wardrobe) {
+        if (item.getType().equalsIgnoreCase(type)) {
+            System.out.println(item);
+            }
         }
     }
 }
