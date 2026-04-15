@@ -20,4 +20,13 @@ public class Wardrobe {
             }
         }
     }
+
+    public ClothingItem getItemType(String type){
+        for(ClothingItem item : wardrobe) {
+            if(item.getType().equalsIgnoreCase(type)){
+                return item;
+            }
+        }
+        return null;
+    }
 }
