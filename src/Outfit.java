@@ -18,5 +18,5 @@ public class Outfit {
            "Shirt: " + shirt + "\n" +
            "Pants: " + pants + "\n" +
            "Shoes: " + shoes;
-}
+    }
 }
