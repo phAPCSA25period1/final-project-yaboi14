@@ -15,9 +15,9 @@ public class App {
         wardrobe.addItem(hat);
         wardrobe.addItem(shoes);
 
-        wardrobe.seeWardrobe();
-        wardrobe.printItemsByType("shirt");
-        wardrobe.getItemType("shirt");
+        //wardrobe.seeWardrobe();
+        //wardrobe.printItemsByType("shirt");
+        System.out.println(wardrobe.getItemType("shirt"));
 
     }
 }

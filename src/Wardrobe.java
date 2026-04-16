@@ -14,10 +14,10 @@ public class Wardrobe {
     }
 
     public void printItemsByType(String type) {
-    for (ClothingItem item : wardrobe) {
-        if (item.getType().equalsIgnoreCase(type)) {
-            System.out.println(item);
-            }
+        for (ClothingItem item : wardrobe) {
+            if (item.getType().equalsIgnoreCase(type)) {
+                System.out.println(item);
+                }
         }
     }
 
@@ -29,4 +29,7 @@ public class Wardrobe {
         }
         return null;
     }
+
+
 }
+
