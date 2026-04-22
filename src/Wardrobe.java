@@ -21,13 +21,16 @@ public class Wardrobe {
         }
     }
 
-    public ClothingItem getItemType(String type){
-        for(ClothingItem item : wardrobe) {
+    public ArrayList<ClothingItem> getItemsByType(String type){
+        ArrayList<ClothingItem> matches = new ArrayList<>();
+
+        for(ClothingItem item : wardrobe){
             if(item.getType().equalsIgnoreCase(type)){
-                return item;
+                matches.add(item);
             }
         }
-        return null;
+
+        return matches;
     }
 
 

@@ -3,10 +3,11 @@ public class ClothingItem {
     private String color;
     private String imagePath;
 
-    public ClothingItem(String type, String color, String imagePath){
+    public ClothingItem(String type, String color, String imagePath, Wardrobe wardrobe){
         this.type = type;
         this.color = color;
         this.imagePath = imagePath;
+        wardrobe.addItem(this);
     }
 
     public String getType(){
