@@ -12,6 +12,22 @@ public class Outfit {
         this.shoes = shoes;
     }
 
+    public ClothingItem getHat(){
+        return hat;
+    }
+
+    public ClothingItem getShirt(){
+        return shirt;
+    }
+
+    public ClothingItem getPants(){
+        return pants;
+    }
+
+    public ClothingItem getShoes(){
+        return shoes;
+    }
+
         @Override
     public String toString(){
     return "Hat: " + hat + "\n" +
@@ -19,4 +35,5 @@ public class Outfit {
            "Pants: " + pants + "\n" +
            "Shoes: " + shoes;
     }
+
 }

@@ -17,11 +17,17 @@ public class OutfitGenerator {
             return null;
         }
 
-        ClothingItem hat = hats.get((int) (Math.random() * hats.size()));
-        ClothingItem shirt = shirts.get((int) (Math.random() * shirts.size()));
-        ClothingItem pant = pants.get((int) (Math.random() * pants.size()));
-        ClothingItem shoe = shoes.get((int) (Math.random() * shoes.size()));
+         while(true){
+            ClothingItem hat = hats.get((int) (Math.random() * hats.size()));
+            ClothingItem shirt = shirts.get((int) (Math.random() * shirts.size()));
+            ClothingItem pant = pants.get((int) (Math.random() * pants.size()));
+            ClothingItem shoe = shoes.get((int) (Math.random() * shoes.size()));
 
-        return new Outfit(hat, shirt, pant, shoe);
+            Outfit outfit = new Outfit(hat, shirt, pant, shoe);
+
+            if(StyleRule.isValid(outfit)){
+                return outfit;
+            }
+        }
     }
 }

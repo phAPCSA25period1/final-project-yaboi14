@@ -1,12 +1,10 @@
 public class ClothingItem {
     private String type;
     private String color;
-    private String imagePath;
 
-    public ClothingItem(String type, String color, String imagePath, Wardrobe wardrobe){
+    public ClothingItem(String type, String color, Wardrobe wardrobe){
         this.type = type;
         this.color = color;
-        this.imagePath = imagePath;
         wardrobe.addItem(this);
     }
 
@@ -18,12 +16,9 @@ public class ClothingItem {
         return this.color;
     }
 
-    public String getImagePath(){
-        return this.imagePath;
-    }
 
     @Override
     public String toString(){
-        return "Item type: " + this.type + " Color: " + this.color + " Image Path: " + this.imagePath;
+        return "Item type: " + this.type + " Color: " + this.color;
     }
 }
