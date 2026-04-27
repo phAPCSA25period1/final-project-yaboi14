@@ -12,6 +12,7 @@ public class Outfit {
         this.shoes = shoes;
     }
 
+
     public ClothingItem getHat(){
         return hat;
     }
