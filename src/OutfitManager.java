@@ -21,10 +21,10 @@ public class OutfitManager {
         for(int col = 0; col < outfitCount; col++){
             System.out.println("Outfit " + (col + 1) + ":");
 
-            System.out.println("Hat: " + savedOutfits[0][col]);
-            System.out.println("Shirt: " + savedOutfits[1][col]);
-            System.out.println("Pants: " + savedOutfits[2][col]);
-            System.out.println("Shoes: " + savedOutfits[3][col]);
+            System.out.println(savedOutfits[0][col]);
+            System.out.println(savedOutfits[1][col]);
+            System.out.println(savedOutfits[2][col]);
+            System.out.println(savedOutfits[3][col]);
 
             System.out.println("-----");
         }
