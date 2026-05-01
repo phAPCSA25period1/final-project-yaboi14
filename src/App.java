@@ -5,6 +5,21 @@ public class App {
         // Create wardrobe
         Wardrobe wardrobe = new Wardrobe();
 
+        // Presaved clothes so they can make an outfit wihout adding more clothes
+        ClothingItem redShirt = new ClothingItem("shirt","red",wardrobe);
+        ClothingItem blueShirt = new ClothingItem("shirt","blue",wardrobe);
+        ClothingItem brownShirt = new ClothingItem("shirt","brown",wardrobe);
+        ClothingItem black = new ClothingItem("shirt","black",wardrobe);
+        ClothingItem redHat = new ClothingItem("hat","red",wardrobe);
+        ClothingItem blueHat = new ClothingItem("hat","blue",wardrobe);
+        ClothingItem yellowHat = new ClothingItem("hat","yellow",wardrobe);
+        ClothingItem bluePants = new ClothingItem("pants","blue",wardrobe);
+        ClothingItem blackPants = new ClothingItem("pants","black",wardrobe);
+        ClothingItem greyPants = new ClothingItem("pants","grey",wardrobe);
+        ClothingItem blackShoes = new ClothingItem("Shoes","black",wardrobe);
+        ClothingItem blueShoes = new ClothingItem("Shoes","blue",wardrobe);
+        ClothingItem brownShoes = new ClothingItem("Shoes","brown",wardrobe);
+
         // Add items
         Scanner scan = new Scanner(System.in);
         while (true) {
@@ -56,7 +71,6 @@ public class App {
                 System.out.println("\nGenerated Outfit:");
                 System.out.println(fit1);
 
-            // SAVE?
                 while (true) {
                     System.out.println("Would you like to save the outfit? (yes/no)");
                     String answer2 = scan.next();
