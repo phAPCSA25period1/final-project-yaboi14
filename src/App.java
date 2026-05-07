@@ -1,97 +1,122 @@
 import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
 
         // Create wardrobe
         Wardrobe wardrobe = new Wardrobe();
 
-        // Presaved clothes so they can make an outfit wihout adding more clothes
+        // Presaved clothes
         ClothingItem redShirt = new ClothingItem("shirt","red",wardrobe);
         ClothingItem blueShirt = new ClothingItem("shirt","blue",wardrobe);
         ClothingItem brownShirt = new ClothingItem("shirt","brown",wardrobe);
-        ClothingItem black = new ClothingItem("shirt","black",wardrobe);
+        ClothingItem blackShirt = new ClothingItem("shirt","black",wardrobe);
+
         ClothingItem redHat = new ClothingItem("hat","red",wardrobe);
         ClothingItem blueHat = new ClothingItem("hat","blue",wardrobe);
         ClothingItem yellowHat = new ClothingItem("hat","yellow",wardrobe);
+
         ClothingItem bluePants = new ClothingItem("pants","blue",wardrobe);
         ClothingItem blackPants = new ClothingItem("pants","black",wardrobe);
         ClothingItem greyPants = new ClothingItem("pants","grey",wardrobe);
-        ClothingItem blackShoes = new ClothingItem("Shoes","black",wardrobe);
-        ClothingItem blueShoes = new ClothingItem("Shoes","blue",wardrobe);
-        ClothingItem brownShoes = new ClothingItem("Shoes","brown",wardrobe);
 
-        // Add items
+        ClothingItem blackShoes = new ClothingItem("shoes","black",wardrobe);
+        ClothingItem blueShoes = new ClothingItem("shoes","blue",wardrobe);
+        ClothingItem brownShoes = new ClothingItem("shoes","brown",wardrobe);
+
         Scanner scan = new Scanner(System.in);
-        while (true) {
-            System.out.println("Add new clothing item to wardrobe!");
-            System.out.println("Item Type (Hat,Shirt,Pants, or Shoes):");
-            String type = scan.next();
-
-            while (true) {
-                if(!(type.equalsIgnoreCase("hat") || type.equalsIgnoreCase("shirt") || type.equalsIgnoreCase("pants") || type.equalsIgnoreCase("shoes"))){
-                System.out.println("Please give valid answer, choose between Hat, Shirt, Pants, or Shoes " );
-                type = scan.next();
-                }
-                else{
-                    break;
-                }
-            }
-
-            System.out.println("Clothing Color: ");
-            String color = scan.next();
-
-            new ClothingItem(type,color,wardrobe);
-            System.out.println("");
-            System.out.println("Add more clothing?");
-            String answer = scan.next();
-            if(answer.equalsIgnoreCase("no")){
-                break;
-            }
-            if(!answer.equalsIgnoreCase("yes")|| !answer.equalsIgnoreCase("no")){
-                System.out.println("Give valid answer (yes or no)");
-            }
-        }
 
         OutfitManager manager = new OutfitManager();
 
-    while (true) {
+        // Main program loop
+        while (true) {
 
-        System.out.println("\nWould you like to generate an outfit? (yes/no)");
-        String answer = scan.next();
+            System.out.println("\n===== Outfit Generator Menu =====");
+            System.out.println("1. Add Clothing Item");
+            System.out.println("2. Generate Outfit");
+            System.out.println("3. View Saved Outfits");
+            System.out.println("4. View Wardrobe");
+            System.out.println("5. Exit");
 
-        if(answer.equalsIgnoreCase("no")){
-            break;
-        }
+            String choice = scan.next();
 
-        if(answer.equalsIgnoreCase("yes")){
+            // Add clothing item
+            if (choice.equals("1")) {
 
-            Outfit fit1 = OutfitGenerator.generateOutfit(wardrobe);
+                System.out.println("\nEnter clothing type (Hat, Shirt, Pants, Shoes):");
+                String type = scan.next();
 
-            if(fit1 != null){
-                System.out.println("\nGenerated Outfit:");
-                System.out.println(fit1);
+                while (!(type.equalsIgnoreCase("hat") ||
+                         type.equalsIgnoreCase("shirt") ||
+                         type.equalsIgnoreCase("pants") ||
+                         type.equalsIgnoreCase("shoes"))) {
 
-                while (true) {
-                    System.out.println("Would you like to save the outfit? (yes/no)");
-                    String answer2 = scan.next();
+                    System.out.println("Invalid type. Please enter Hat, Shirt, Pants, or Shoes:");
+                    type = scan.next();
+                }
 
-                    if(answer2.equalsIgnoreCase("yes")){
-                        manager.saveOutfit(fit1);
-                        System.out.println("Outfit saved!");
-                        break;
-                    }
-                    else if(answer2.equalsIgnoreCase("no")){
-                        break;
-                    }
-                    else{
-                        System.out.println("Invalid input.");
+                System.out.println("Enter clothing color:");
+                String color = scan.next();
+
+                new ClothingItem(type, color, wardrobe);
+
+                System.out.println("Clothing item added!");
+            }
+
+            // Generate outfit
+            else if (choice.equals("2")) {
+
+                Outfit fit1 = OutfitGenerator.generateOutfit(wardrobe);
+
+                if (fit1 != null) {
+
+                    System.out.println("\nGenerated Outfit:");
+                    System.out.println(fit1);
+
+                    while (true) {
+
+                        System.out.println("\nWould you like to save the outfit? (yes/no)");
+                        String saveAnswer = scan.next();
+
+                        if (saveAnswer.equalsIgnoreCase("yes")) {
+                            manager.saveOutfit(fit1);
+                            System.out.println("Outfit saved!");
+                            break;
+                        }
+
+                        else if (saveAnswer.equalsIgnoreCase("no")) {
+                            break;
+                        }
+
+                        else {
+                            System.out.println("Invalid input.");
+                        }
                     }
                 }
             }
-        }
-        else{
-            System.out.println("Please enter yes or no.");
+
+            // View saved outfits
+            else if (choice.equals("3")) {
+                manager.displayOutfits();
+            }
+
+            // View wardrobe
+            else if (choice.equals("4")) {
+                wardrobe.seeWardrobe();
+            }
+
+            // Exit
+            else if (choice.equals("5")) {
+                System.out.println("Goodbye!");
+                break;
+            }
+
+            // Invalid menu option
+            else {
+                System.out.println("Invalid option.");
             }
         }
+
+        scan.close();
     }
 }
