@@ -1,189 +1,74 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23508259)
-# AP Computer Science A – Final Project
-## Software & Systems Development Capstone
+# Outfit Generator
 
-Welcome to your **Final Project repository**.
+## What This Software Does
+Outfit Generator is a Java program that allows users to create and manage a digital wardrobe. The program can randomly generate outfits using clothing items stored in the wardrobe while following built-in style rules to avoid clashing colors and repeated color combinations.
 
-This repository will hold:
-- Your complete Java project
-- Your project journal and planning artifacts
-- Your final, working software product
+Users can:
+- Add clothing items to the wardrobe
+- View all stored clothing items
+- Generate randomized outfits
+- Save generated outfits
+- View previously saved outfits
 
-This is not just an assignment — it is a **capstone software project**.
-
----
-
-## 📌 Project Overview (Read Carefully)
-
-In this project, you will:
-- Design and build a **real piece of software**
-- Solve **one real problem** for **one clearly defined user**
-- Work using **agile development**
-- Show evidence of **professional software practices**
-- Use AI responsibly as a planning and support tool
-
-You will leave this course with something you can confidently say:
-
-> “I built this software.”
+The program uses object-oriented programming concepts and multiple interacting classes to organize clothing, outfits, wardrobe storage, outfit generation, and style validation.
 
 ---
 
-## 🔁 Required Workflow (How You Must Work)
-
-### ✅ Daily GitHub Commits (Required)
-You are expected to:
-- Make **at least one meaningful commit every class day**
-- Write **descriptive commit messages** that explain:
-  - What you changed
-  - Why you changed it
-  - What goal it supports
-
-✅ Good commit messages:
-- `Sprint 1: Created Player class and tested constructor`
-- `Sprint 2: Implemented 2D map and verified movement logic`
-
-🚫 Poor commit messages:
-- `updates`
-- `stuff`
-- `final version`
-
-Your commit history is **evidence of your thinking and progress**.
+## Who It’s For
+This software is designed for users who want help creating outfit combinations from clothing they own. It solves the problem of choosing outfits by automatically generating clothing combinations while following simple style rules.
 
 ---
 
-## 🔁 Agile Development & Sprints
+## How to Run the Program
 
-You will complete **4 sprints**.  
-Each sprint includes:
-- Planning
-- Building
-- Testing
-- Feedback and reflection
+1. Open the project in a Java IDE such as:
+   - VS Code
 
-Each sprint ends with:
-- A sprint grade
-- A sprint reflection
-- Feedback exchanged with peers
 
-🚫 You may NOT complete multiple sprints at once.  
-✅ Each sprint grade is **final**.
+2. Compile all Java files.
 
----
+3. Run the `App.java` file.
 
-## 🧪 Testing Expectations
-
-Testing is required every sprint.
-
-✅ Testing may include:
-- Running the program with different inputs
-- Print‑based testing
-- Driver program testing
-- Verifying logic and edge cases
-
-You should be able to explain:
-- What you tested
-- How you tested it
-- What you discovered or fixed
+4. Use the menu to:
+   - Add clothing items
+   - Generate outfits
+   - Save outfits
+   - View the wardrobe
+   - View saved outfits
 
 ---
 
-## 🗂️ Required Project Components
+## Technical Overview
 
-Your final project must include:
+### Main Classes
 
-- ✅ Multiple interacting Java classes
-- ✅ Encapsulation (`private` fields, appropriate getters/setters)
-- ✅ Arrays and/or ArrayLists
-- ✅ A purposeful **2D array**
-- ✅ A working driver program (`main`)
-- ✅ A class diagram matching your final code
-- ✅ Clear documentation
-- ✅ A program that runs and works
+#### `App`
+The main driver class that runs the menu system and handles user interaction.
 
-Inheritance and interfaces are optional but encouraged.
+#### `ClothingItem`
+Represents a single clothing item with:
+- clothing type
+- clothing color
 
----
+#### `Wardrobe`
+Stores all clothing items using an `ArrayList<ClothingItem>` and provides methods to search and display items.
 
-## 🤖 Using AI (Allowed, With Responsibility)
+#### `Outfit`
+Represents a complete outfit containing:
+- hat
+- shirt
+- pants
+- shoes
 
-You may use AI to:
-- Organize ideas
-- Plan sprints
-- Debug code
-- Suggest design improvements
+#### `OutfitGenerator`
+Generates random outfits from the wardrobe and checks if they follow style rules.
 
-You must:
-- Document how you used AI
-- Review and evaluate AI suggestions
-- Understand and explain your final code
+#### `StyleRule`
+Validates outfits by checking:
+- repeated colors
+- clashing color combinations
 
-AI should act like:
-> A junior developer you supervise — not something that builds the project for you.
-
----
-
-## 📘 Project Journal
-
-All planning, work logs, testing notes, and reflections live in **your project journal**.
-
-If it happened during this project, it should be documented there.
-
----
-
-## ✅ Final Submission Expectations
-
-By the end of the project:
-- Your program should run reliably
-- Your technical requirements should be met
-- Your code should be readable and organized
-- Your repository should look **professional**
-
----
-
-# ✨ Final Step: README Update (Very Important)
-
-When your project is complete, you must **rewrite this README**  
-so it reflects **your software**, not the assignment.
-
-Your final README should include:
-
----
-
-## 🔹 Project Title
-
-## 🔹 What This Software Does
-Explain your project in plain language.
-
-## 🔹 Who It’s For
-Describe the user and the problem being solved.
-
-## 🔹 How to Run the Program
-Clear steps so someone else can run your project.
-
-## 🔹 Technical Overview
-Brief description of:
-- Main classes
-- Key data structures
-- Program logic
-
-## 🔹 Class Diagram
-Include or link your final class diagram.
-
-## 🔹 Known Limitations / Future Improvements
-What works well, and what you would improve with more time.
-
----
-
-## 🎯 Final Reminder
-
-This repository represents **you as a developer**.
-
-Take pride in:
-- Your process
-- Your commits
-- Your code
-- Your documentation
-
-Build something real.  
-Build it thoughtfully.  
-Build it well.
+#### `OutfitManager`
+Stores saved outfits using a purposeful 2D array:
+```java
+ClothingItem[][] savedOutfits
