@@ -9,6 +9,7 @@ public class OutfitManager {
 
     private ClothingItem[][] savedOutfits = new ClothingItem[4][10];
     private int outfitCount = 0;
+    private int savedCount = 0;
 
     /**
      * Saves an Outfit into the 2D array storage.
@@ -31,6 +32,7 @@ public class OutfitManager {
         savedOutfits[3][outfitCount] = outfit.getShoes();
 
         outfitCount++;
+        savedCount++;
     }
 
     /**
@@ -48,5 +50,14 @@ public class OutfitManager {
 
             System.out.println("-----");
         }
+    }
+
+        /**
+     * Returns the number of outfits saved.
+     *
+     * @return total saved outfits
+     */
+    public int getSavedCount(){
+        return savedCount;
     }
 }

@@ -28,6 +28,10 @@ public class App {
 
         OutfitManager manager = new OutfitManager();
 
+        // Favorite color feature
+        System.out.println("Enter your favorite color:");
+        String favoriteColor = scan.next();
+
         // Main program loop
         while (true) {
 
@@ -36,7 +40,8 @@ public class App {
             System.out.println("2. Generate Outfit");
             System.out.println("3. View Saved Outfits");
             System.out.println("4. View Wardrobe");
-            System.out.println("5. Exit");
+            System.out.println("5. View Outfit Statistics");
+            System.out.println("6. Exit");
 
             String choice = scan.next();
 
@@ -66,7 +71,7 @@ public class App {
             // Generate outfit
             else if (choice.equals("2")) {
 
-                Outfit fit1 = OutfitGenerator.generateOutfit(wardrobe);
+                Outfit fit1 = OutfitGenerator.generateOutfit(wardrobe, favoriteColor);
 
                 if (fit1 != null) {
 
@@ -105,8 +110,16 @@ public class App {
                 wardrobe.seeWardrobe();
             }
 
-            // Exit
+            // View statistics
             else if (choice.equals("5")) {
+
+                System.out.println("\n===== Outfit Statistics =====");
+                System.out.println("Outfits Generated: " + OutfitGenerator.getGeneratedCount());
+                System.out.println("Outfits Saved: " + manager.getSavedCount());
+            }
+
+            // Exit
+            else if (choice.equals("6")) {
                 System.out.println("Goodbye!");
                 break;
             }

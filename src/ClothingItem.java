@@ -46,6 +46,6 @@ public class ClothingItem {
      */
     @Override
     public String toString(){
-        return "Item type: " + this.type + " Color: " + this.color;
+        return color + " " + type;
     }
 }

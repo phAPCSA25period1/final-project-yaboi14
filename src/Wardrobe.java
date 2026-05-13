@@ -20,10 +20,17 @@ public class Wardrobe {
 
     /**
      * Prints all clothing items currently in the wardrobe.
+     * Displays each item with a number.
      */
     public void seeWardrobe(){
-        for (ClothingItem item : wardrobe) {
-            System.out.println(item);
+
+        if(wardrobe.isEmpty()){
+            System.out.println("Wardrobe is empty!");
+            return;
+        }
+
+        for(int i = 0; i < wardrobe.size(); i++){
+            System.out.println((i + 1) + ". " + wardrobe.get(i));
         }
     }
 
